@@ -1,0 +1,40 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.dialect">org.hibernate.dialect.HSQLDialect</property>
+        <property name="hibernate.connection.driver_class">org.hsqldb.jdbcDriver</property>
+        <property name="hibernate.connection.username">sa</property>
+        <property name="hibernate.connection.password"></property>
+        <property name="hibernate.connection.url">jdbc:hsqldb:hsql://localhost/mydb</property>
+        <property name="hibernate.jdbc.use_streams_for_binary">true</property>
+        <property name="hibernate.jdbc.batch_size">0</property>
+        <property name="hibernate.max_fetch_depth">3</property>
+        <property name="hibernate.show_sql">true</property>
+
+        <!-- 
+        <property name="hibernate.hbm2ddl.auto">update</property>
+         -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="hibernate.generate_statistics">true</property>
+        <!-- 
+        <property name="hibernate.cache.use_query_cache">true</property>
+        <property name="hibernate.cache.region_prefix">hibernate.test</property>
+        <property name="hibernate.cache.region.factory_class">org.hibernate.testing.cache.CachingRegionFactory</property>
+         -->
+         
+         <!-- Disable the second-level cache 
+        <property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+         -->
+		
+        <property name="cache.provider_class">org.hibernate.cache.EhCacheProvider</property>
+        <property name="cache.use_second_level_cache">true</property>
+        <property name="cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
+        <property name="cache.use_query_cache">true</property>
+         
+         
+        <mapping class="com.tistory.tazz009.dto.UserDetails" />
+    </session-factory>
+</hibernate-configuration>
